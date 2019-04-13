@@ -1,25 +1,21 @@
 import React, { Component } from "react";
+import "./Number.css";
 
 class Number extends Component {
-  state = {
-    selected: false
-  };
-
-  handleToggle = () => {
-    this.setState({ selected: !this.state.selected });
-  };
-
   render() {
     return (
-      <span className={this.getNumberClasses()} onClick={this.handleToggle}>
-        12
+      <span
+        className={this.getNumberClasses()}
+        onClick={() => this.props.onToggle(this.props.number)}
+      >
+        {this.props.number.value}
       </span>
     );
   }
 
   getNumberClasses() {
     let classes = "number";
-    classes += this.state.selected ? " number-selected" : "";
+    classes += this.props.number.selected ? " number-selected" : "";
     return classes;
   }
 }
