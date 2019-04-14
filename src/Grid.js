@@ -241,70 +241,70 @@ const multiples = [
 class Grid extends Component {
   state = {
     numbers: [
-      { value: 1, selected: false },
-      { value: 2, selected: false },
-      { value: 3, selected: false },
-      { value: 4, selected: false },
-      { value: 5, selected: false },
-      { value: 6, selected: false },
-      { value: 7, selected: false },
-      { value: 8, selected: false },
-      { value: 9, selected: false },
-      { value: 10, selected: false },
-      { value: 11, selected: false },
-      { value: 12, selected: false },
-      { value: 13, selected: false },
-      { value: 14, selected: false },
-      { value: 15, selected: false },
-      { value: 16, selected: false },
-      { value: 17, selected: false },
-      { value: 18, selected: false },
-      { value: 19, selected: false },
-      { value: 20, selected: false },
-      { value: 21, selected: false },
-      { value: 22, selected: false },
-      { value: 23, selected: false },
-      { value: 24, selected: false },
-      { value: 25, selected: false },
-      { value: 26, selected: false },
-      { value: 27, selected: false },
-      { value: 28, selected: false },
-      { value: 29, selected: false },
-      { value: 30, selected: false },
-      { value: 31, selected: false },
-      { value: 32, selected: false },
-      { value: 33, selected: false },
-      { value: 34, selected: false },
-      { value: 35, selected: false },
-      { value: 36, selected: false },
-      { value: 37, selected: false },
-      { value: 38, selected: false },
-      { value: 39, selected: false },
-      { value: 40, selected: false },
-      { value: 41, selected: false },
-      { value: 42, selected: false },
-      { value: 43, selected: false },
-      { value: 44, selected: false },
-      { value: 45, selected: false },
-      { value: 46, selected: false },
-      { value: 47, selected: false },
-      { value: 48, selected: false },
-      { value: 49, selected: false },
-      { value: 50, selected: false }
+      { value: 1, selected: false, disabled: false },
+      { value: 2, selected: false, disabled: false },
+      { value: 3, selected: false, disabled: false },
+      { value: 4, selected: false, disabled: false },
+      { value: 5, selected: false, disabled: false },
+      { value: 6, selected: false, disabled: false },
+      { value: 7, selected: false, disabled: false },
+      { value: 8, selected: false, disabled: false },
+      { value: 9, selected: false, disabled: false },
+      { value: 10, selected: false, disabled: false },
+      { value: 11, selected: false, disabled: false },
+      { value: 12, selected: false, disabled: false },
+      { value: 13, selected: false, disabled: false },
+      { value: 14, selected: false, disabled: false },
+      { value: 15, selected: false, disabled: false },
+      { value: 16, selected: false, disabled: false },
+      { value: 17, selected: false, disabled: false },
+      { value: 18, selected: false, disabled: false },
+      { value: 19, selected: false, disabled: false },
+      { value: 20, selected: false, disabled: false },
+      { value: 21, selected: false, disabled: false },
+      { value: 22, selected: false, disabled: false },
+      { value: 23, selected: false, disabled: false },
+      { value: 24, selected: false, disabled: false },
+      { value: 25, selected: false, disabled: false },
+      { value: 26, selected: false, disabled: false },
+      { value: 27, selected: false, disabled: false },
+      { value: 28, selected: false, disabled: false },
+      { value: 29, selected: false, disabled: false },
+      { value: 30, selected: false, disabled: false },
+      { value: 31, selected: false, disabled: false },
+      { value: 32, selected: false, disabled: false },
+      { value: 33, selected: false, disabled: false },
+      { value: 34, selected: false, disabled: false },
+      { value: 35, selected: false, disabled: false },
+      { value: 36, selected: false, disabled: false },
+      { value: 37, selected: false, disabled: false },
+      { value: 38, selected: false, disabled: false },
+      { value: 39, selected: false, disabled: false },
+      { value: 40, selected: false, disabled: false },
+      { value: 41, selected: false, disabled: false },
+      { value: 42, selected: false, disabled: false },
+      { value: 43, selected: false, disabled: false },
+      { value: 44, selected: false, disabled: false },
+      { value: 45, selected: false, disabled: false },
+      { value: 46, selected: false, disabled: false },
+      { value: 47, selected: false, disabled: false },
+      { value: 48, selected: false, disabled: false },
+      { value: 49, selected: false, disabled: false },
+      { value: 50, selected: false, disabled: false }
     ],
     stars: [
-      { value: 1, selected: false },
-      { value: 2, selected: false },
-      { value: 3, selected: false },
-      { value: 4, selected: false },
-      { value: 5, selected: false },
-      { value: 6, selected: false },
-      { value: 7, selected: false },
-      { value: 8, selected: false },
-      { value: 9, selected: false },
-      { value: 10, selected: false },
-      { value: 11, selected: false },
-      { value: 12, selected: false }
+      { value: 1, selected: false, disabled: false },
+      { value: 2, selected: false, disabled: false },
+      { value: 3, selected: false, disabled: false },
+      { value: 4, selected: false, disabled: false },
+      { value: 5, selected: false, disabled: false },
+      { value: 6, selected: false, disabled: false },
+      { value: 7, selected: false, disabled: false },
+      { value: 8, selected: false, disabled: false },
+      { value: 9, selected: false, disabled: false },
+      { value: 10, selected: false, disabled: false },
+      { value: 11, selected: false, disabled: false },
+      { value: 12, selected: false, disabled: false }
     ],
     numbersGridDisabled: false,
     starsGridDisabled: false,
@@ -315,13 +315,17 @@ class Grid extends Component {
   };
 
   handleNumberToggle = number => {
-    this.updateNumberState(number);
-    this.updateTotalNumbersSelected(number);
+    if (!number.disabled) {
+      this.updateNumberState(number);
+      this.updateTotalNumbersSelected(number);
+    }
   };
 
   handleStarToggle = star => {
-    this.updateStarState(star);
-    this.updateTotalStarsSelected(star);
+    if (!star.disabled) {
+      this.updateStarState(star);
+      this.updateTotalStarsSelected(star);
+    }
   };
 
   updateNumberState = number => {
@@ -348,7 +352,7 @@ class Grid extends Component {
       ? totalNumbersSelected++
       : totalNumbersSelected--;
     this.setState({ totalNumbersSelected }, () => {
-      this.handleGridState();
+      this.updateGridState();
     });
   };
 
@@ -358,25 +362,77 @@ class Grid extends Component {
     const stars = [...this.state.stars];
     !stars[starIndex].selected ? totalStarsSelected++ : totalStarsSelected--;
     this.setState({ totalStarsSelected }, () => {
-      this.handleGridState();
+      this.updateGridState();
     });
   };
 
-  handleGridState = () => {
-    const { currentMultiple, multiplesAvailable } = this.getCurrentMultiple();
+  updateGridState = () => {
+    const totalNumbersSelected = this.state.totalNumbersSelected;
+    const totalStarsSelected = this.state.totalStarsSelected;
+    const currentMultiple = this.getCurrentMultiple();
+    const patterns = this.state.multiples.map(multiple => multiple.pattern);
+
+    this.handleNumbersGrid(patterns, totalNumbersSelected, totalStarsSelected);
+    this.handleStarsGrid(patterns, totalNumbersSelected, totalStarsSelected);
+
     this.updateCost(currentMultiple);
   };
 
   getCurrentMultiple = () => {
     const totalNumbersSelected = this.state.totalNumbersSelected;
     const totalStarsSelected = this.state.totalStarsSelected;
-    const multiplesAvailable = this.state.multiples.filter(
-      multiple => multiple.pattern[0] === totalNumbersSelected
+    const currentMultiple = this.state.multiples.filter(
+      multiple =>
+        multiple.pattern[0] === totalNumbersSelected &&
+        multiple.pattern[1] === totalStarsSelected
     );
-    const currentMultiple = multiplesAvailable.filter(
-      multiple => multiple.pattern[1] === totalStarsSelected
+    return currentMultiple;
+  };
+
+  handleNumbersGrid = (patterns, totalNumbersSelected, totalStarsSelected) => {
+    const patternsAvailable = patterns.filter(
+      pattern =>
+        pattern[0] > totalNumbersSelected && pattern[1] >= totalStarsSelected
     );
-    return { currentMultiple, multiplesAvailable };
+
+    const numbers = [...this.state.numbers];
+    const notSelectedNumbers = numbers.filter(number => !number.selected);
+    const notSelectedNumbersIndexes = notSelectedNumbers.map(number =>
+      numbers.indexOf(number)
+    );
+
+    if (patternsAvailable.length > 0) {
+      notSelectedNumbersIndexes.forEach(
+        index => (numbers[index].disabled = false)
+      );
+      this.setState({ numbers });
+    } else {
+      notSelectedNumbersIndexes.forEach(
+        index => (numbers[index].disabled = true)
+      );
+      this.setState({ numbers });
+    }
+  };
+
+  handleStarsGrid = (patterns, totalNumbersSelected, totalStarsSelected) => {
+    const patternsAvailable = patterns.filter(
+      pattern =>
+        pattern[1] > totalStarsSelected && pattern[0] >= totalNumbersSelected
+    );
+
+    const stars = [...this.state.stars];
+    const notSelectedStars = stars.filter(star => !star.selected);
+    const notSelectedStarsIndexes = notSelectedStars.map(star =>
+      stars.indexOf(star)
+    );
+
+    if (patternsAvailable.length > 0) {
+      notSelectedStarsIndexes.forEach(index => (stars[index].disabled = false));
+      this.setState({ stars });
+    } else {
+      notSelectedStarsIndexes.forEach(index => (stars[index].disabled = true));
+      this.setState({ stars });
+    }
   };
 
   updateCost(currentMultiple) {
@@ -392,8 +448,6 @@ class Grid extends Component {
     return (
       <div className="Grid">
         <div className="grid-header">
-          {this.state.totalNumbersSelected}
-          {this.state.totalStarsSelected}
           <span className="title">Grille 1</span>
           <Amount amount={this.state.amount} />
         </div>

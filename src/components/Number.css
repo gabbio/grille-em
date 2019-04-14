@@ -11,10 +11,14 @@
   line-height: 45px;
   text-align: center;
   cursor: pointer;
-  /* cursor: not-allowed; */
 }
 
 .number.number-selected {
   color: #fff;
   background-color: blue;
+}
+
+.number.number-disabled {
+  background-color: rgba(163, 167, 163, 0.562);
+  cursor: not-allowed;
 }

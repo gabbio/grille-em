@@ -17,6 +17,7 @@ class Star extends Component {
   getStarClasses() {
     let classes = "star";
     classes += this.props.star.selected ? " star-selected" : "";
+    classes += this.props.star.disabled ? " star-disabled" : "";
     return classes;
   }
 }

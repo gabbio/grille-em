@@ -5,6 +5,7 @@
   width: 45px;
   height: 45px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .star .star-value {
@@ -35,4 +36,9 @@ i {
 
 .star.star-selected i {
   color: orange;
+}
+
+.star.star-disabled i {
+  color: rgba(163, 167, 163, 0.562);
+  cursor: not-allowed;
 }

@@ -1,19 +1,20 @@
 .Grid {
   position: relative;
-  margin: -150px auto 0;
-  top: 300px;
+  margin: -225px auto 0;
+  top: 450px;
   left: 0;
   width: 950px;
-  height: 300px;
+  height: 450px;
+  background-color: rgba(220, 230, 230, 0.582);
 }
 
 .Grid .grid-header {
   display: block;
   position: relative;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
-  height: 50px;
+  height: 60px;
   line-height: 30px;
 }
 

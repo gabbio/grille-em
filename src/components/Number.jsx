@@ -16,6 +16,7 @@ class Number extends Component {
   getNumberClasses() {
     let classes = "number";
     classes += this.props.number.selected ? " number-selected" : "";
+    classes += this.props.number.disabled ? " number-disabled" : "";
     return classes;
   }
 }
