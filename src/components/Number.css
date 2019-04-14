@@ -3,13 +3,15 @@
   display: inline-block;
   color: blue;
   background-color: #fff;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   box-sizing: border-box;
   border-radius: 50%;
   font-weight: bold;
-  line-height: 35px;
+  line-height: 45px;
   text-align: center;
+  cursor: pointer;
+  /* cursor: not-allowed; */
 }
 
 .number.number-selected {

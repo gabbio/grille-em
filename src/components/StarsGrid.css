@@ -1,4 +1,8 @@
 .stars-grid {
+  display: inline-block;
+  margin: 15px 25px;
+  float: right;
+  top: 0;
   width: 195px;
   background-color: rgba(224, 231, 231, 0.329);
 }
